@@ -12,9 +12,9 @@ function App() {
         <h2>Welcome to Barstropica v1.0.</h2>
         <div className="Step-1">
           <Container>
-            <Row className="justify-content-md-center">
-              <Col> Step 1: Enter a theme or topic you want to talk about</Col>
-              <Col> <input/></Col>
+            <Row className="align-items-center">
+              <Col > Step 1: Enter a theme or topic you want to talk about</Col>
+              <Col className="justify-content-center"> <input placeholder="Type here"/></Col>
             </Row>
           </Container>
         </div>
