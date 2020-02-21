@@ -103,7 +103,7 @@ export default class ResultPanel extends Component{
 
     // Determine which API to query when loading resultPanel
     componentDidUpdate(prevProps){
-        if (this.props.stateLoaded !== prevProps.stateLoaded) {
+        if ((this.props.selectedWord !== prevProps.selectedWord) || (this.props.stateLoaded !== prevProps.stateLoaded)) {
             switch(this.props.stateLoaded){
                 case 1:
                     // Synonyms panel
@@ -135,7 +135,7 @@ export default class ResultPanel extends Component{
                                     {/* TODO: Make separate CSS file for container divs */}
                                     <div className="syn-container">
                                         <ul>
-                                            {this.state.synonymList.map(listItem => <li>{listItem}</li>)}
+                                            {this.state.synonymList.map((listItem, index) => <li key={index}>{listItem}</li>)}
                                         </ul>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@ export default class ResultPanel extends Component{
                 // Rhyme panel
                 const syllArr = Object.values(this.state.rhymeList)
                 
-                resultPanel =   syllArr.map((wordList, id) => <SyllableContainer syllNum={id} wordArr={wordList} />)
+                resultPanel =   syllArr.map((wordList, id) => <SyllableContainer key={id} syllNum={id} wordArr={wordList} />)
                 break    
             case 3:
                 // TODO: Section for idea
